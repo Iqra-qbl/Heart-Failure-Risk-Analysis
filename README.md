@@ -70,7 +70,7 @@
 
 ## Credits 
 
-* Kaggle Dataset: https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction 
+* Kaggle Dataset: https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction
 * You can break the credits section up into Content and Media, depending on what you have included in your project. 
 
 ### Content 
