@@ -51,20 +51,30 @@
 
 ## Dashboard Design
 * There is only one interactive dashboard page in PowerBI. 
-* It has a large heart image to represent what the main topic of the dashboard is, which is heart failure analysis. 
+* It has a large red and blue heart image to represent what the main topic of the dashboard is which is heart failure analysis. 
 * To prove the age and gender as predictors hypothesis, created demographic bar charts to compare risk score for different age groups and genders. 
 * Created a pie chart to highlight the number of patients at risk and what their respective risk level was based on high, medium, normal and low risk category.
 * Created multiple option selection options for Risk level and Chest Pain Type to get relevant figures and analysis.
-* 
-![Dashboard Design]
-* Later, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but subsequently you used another plot type).
+* Created a place card for average cholestrol and mutliple line charts and bar charts to compare distribution of values in other main medical indators in dataset.
+* Created line chart to showcase average maximum heart rate and forecast
+* Added decomposition tree to analyse Average Risk score and drilling down into the key drivers behind the metric, such as understanding factors contributing to heart failure risk predictions using features such as gender, age groups, heart disease, chest pain type, resting ECG, resting blood pressure, mamixmum heart rate and st slope values.
+
+![Full Dashboard Design](https://github.com/Iqra-qbl/Heart-Failure-Risk-Analysis/blob/main/Outputs/Visuals/Dashboard%20Design.png)
+
+* Wanted to create scatter plots like the pair plots in data visualisation section but couldn't compute how to recreate them in an interway way in PowerBi dashboard and had to troubleshoot and justify whether they were important to be included just to create graph diversity.
+
 * How were data insights communicated to technical and non-technical audiences?
+I am not a medical expert but used Copliot AI to highlight which features would be suitable for dashboard for medical practioners and common layman.
+
 * Explain how the dashboard was designed to communicate complex data insights to different audiences. 
+Created a blue and red palette that conveys the medical them, kept the graphs clean and uncomplicated for ease of use and encourage experimentation by technical and non-technical people. Also dedicated a section in dashboard to explain how to use the dashboard and see different analyses.
 
 ## Unfixed Bugs
 * There are no unfixed bugs.
+
 * Did you recognise gaps in your knowledge, and how did you address them?
-I would take a break, then troubleshoot with Copilot and ChatGPT AI about what I exactly wanted the code to do and produce and would try different commands to get the exact code and outlook I wanted. 
+
+Yes, I would take a break, research and then troubleshoot with Copilot and ChatGPT AI about what I exactly wanted the code to do and produce and would try different commands to get the exact code and outlook I wanted. 
 
 * If applicable, include evidence of feedback received (from peers or instructors) and how it improved your approach or understanding.
 
