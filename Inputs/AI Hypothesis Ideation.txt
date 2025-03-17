@@ -8,27 +8,13 @@ A. Hypotheses to Explore:
    2. Gender and Risk
       Hypothesis: Males are more likely to experience heart failure than females.
    
-   3. Smoking Habits
-      Hypothesis: Smoking is a strong predictor of heart failure, with smokers exhibiting significantly higher risks.
- 
-   4. Diabetes Impact
-      Hypothesis: Individuals with diabetes are at greater risk of heart failure compared to non-diabetics
-
-   5. Cholesterol Levels
+   3. Cholesterol Levels
       Hypothesis: High levels of cholesterol (represented by Cholesterol) are positively associated with an increased risk of heart failure.
 
-   6. Blood Pressure
-      Hypothesis: Patients with hypertension (High_BP) are at greater risk of developing heart failure than those with normal blood pressure levels.
+   4. Blood Pressure
+      Hypothesis: Patients with higher blood pressure are at greater risk of developing heart failure than those with normal blood pressure levels.
 
-   7. Obesity and BMI
-      Hypothesis: Higher BMI (Body Mass Index) values are strongly correlated with increased risk of heart failure.
 
-   8. Physical Activity
-      Hypothesis: Individuals reporting higher physical activity levels are at a significantly lower risk of heart failure compared to sedentary individuals.
-
-  9. Combination of Factors
-     Hypothesis: The presence of two or more risk factors (e.g., Smoking, High_BP, Diabetes) dramatically increases the probability of heart failure compared to isolated risk factors.
-
- 10. Resting Heart Rate
-     Hypothesis: Individuals with elevated resting heart rates (if included in Heart Rate or related features) are more prone to heart failure.
-
+  5. Combination of Factors
+     Hypothesis: The presence of two or more risk factors and elevation of medical indicators (e.g., ECG, High_BP, Excercide Angina, Maximum heart rate)
+     dramatically increases the probability of heart failure compared to isolated risk factors.
