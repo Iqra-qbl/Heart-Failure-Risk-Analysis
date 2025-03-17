@@ -2,64 +2,201 @@
 
 # Heart Failure Risk Analysis
 
-**Project XYZ** is a comprehensive data analysis tool designed to streamline data exploration, analysis, and visualisation. The tool supports multiple data formats and provides an intuitive interface for both novice and expert data scientists.
+** This project utilizes data-driven insights to identify key risk factors and predictors of heart failure, enabling early diagnosis and preventive care. The tool supports multiple data formats and provides an intuitive interface for both novice and expert data scientists, medical practitioners, WHO and other stakeholders.
+
 
 
 ## Dataset Content
-* Describe your dataset. Choose a dataset of reasonable size to avoid exceeding the repository's maximum size of 100Gb.
+* **Dataset:** `heart_dataset.csv` (https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction)
+- **Dataset Source:** This dataset was created by combining different datasets already available independently but not combined before. In this dataset, 5 heart datasets were combined over 11 common features which makes it the largest heart disease dataset available so far for research purposes. The five datasets used for its curation were: Cleveland (303 observations), Hungarian (294 observations), Switzerland (123 observations), Long Beach VA (200 observations) and Stalog (Heart) Data Set (270 observations). Total 1190 observations with 272 duplicated observations. Final dataset had **918** observation rows and **12** feature columns.
+- **Columns of Interest:**
+  - **Demographics:** Age, Sex
+  - **Medical Indicators:** ChestPainType, RestingBP, FastingBS, Cholesterol, RestingECG, MaxHR, ExerciseAngina
+  - **Column Feature Information:**
+    - Age: age of the patient [years]
+    - Sex: sex of the patient [M: Male, F: Female]
+    - ChestPainType: chest pain type [TA: Typical Angina, ATA: Atypical Angina, NAP: Non-Anginal Pain, ASY: Asymptomatic]
+    - RestingBP: resting blood pressure [mm Hg]
+    - Cholesterol: serum cholesterol [mm/dl]
+    - FastingBS: fasting blood sugar [1: if FastingBS > 120 mg/dl, 0: otherwise]
+    - RestingECG: resting electrocardiogram results [Normal: Normal, ST: having ST-T wave abnormality (T wave inversions and/or ST elevation or depression of > 0.05 mV), LVH: showing probable or definite left ventricular hypertrophy by Estes' criteria]
+    - MaxHR: maximum heart rate achieved [Numeric value between 60 and 202]
+    - ExerciseAngina: exercise-induced angina [Y: Yes, N: No]
+    - Oldpeak: oldpeak = ST [Numeric value measured in depression]
+    - ST_Slope: the slope of the peak exercise ST segment [Up: upsloping, Flat: flat, Down: downsloping]
+    - HeartDisease: output class [1: heart disease, 0: Normal]
 
 
-## Business Requirements
-* Describe your business requirements
+## Healthcare Requirements
+ 1. Identify Key Risk Factors for Heart Failure: Use the dataset to highlight the most significant predictors of heart failure. For example, assess the roles of demographics like age and gender, and medical indicators such as cholesterol levels and blood pressure.
+
+ 2. Develop a Predictive Model: Create a machine learning model to predict the likelihood of heart failure for patients based on their clinical features, aiding healthcare professionals in early diagnosis and preventive measures.
+
+ 3. Visualize Relationships and Insights for medical practictioners and non-tech people.
 
 
 ## Hypothesis and how it was validated?
-* 1. Age and gender as a Predictor
+  1. Age and gender as Predictors
       Hypothesis: Individuals aged 60 and above are at significantly higher risk of heart failure compared to younger individuals and males are more likely to experience heart failure than females.
 
       Validation: Analysis and bar chart to show distribution of heart failure risk across demographics with target variable. 
    
-   3. Cholesterol Levels
+   2. Cholesterol Levels
       Hypothesis: High levels of cholesterol (represented by Cholesterol) are positively associated with an increased risk of heart failure.
       
       Validation: Correlation analysis and matrix for numerical variables (e.g., Cholesterol vs. RestingBP).
 
-   4. Blood Pressure
+   3. Blood Pressure
       Hypothesis: Patients with higher blood pressure are at greater risk of developing heart failure than those with normal blood pressure levels.
+      Validation: Correlationship heatmap and scatter plot show the link between high resting blood pressure and heart disease, in dashboard the bar chart also shows the higher resting blood pressure the higher risk of heart failure.
 
-  5. Combination of Factors
-     Hypothesis: The presence of two or more risk factors and elevation of medical indicators (e.g., ECG, High_BP, Excercide Angina, Maximum heart rate)
-     dramatically increases the probability of heart failure compared to isolated risk factors.
+   4. Combination of Factors
+     Hypothesis: The presence of two or more risk factors and elevation of medical indicators (e.g., ECG, High_BP, Excercide Angina, Maximum heart rate) dramatically increases the probability of heart failure compared to isolated risk factors.
+
+     Validation:   Pair plots to observe relationships between multiple numerical features at once.
+
 
 ## Project Plan
-* Outline the high-level steps taken for the analysis.
-* How was the data managed throughout the collection, processing, analysis and interpretation steps?
-* Why did you choose the research methodologies you used?
+1. **Data Acquisition and Understanding**
+   Step 1.1: Collect the dataset heart_dataset.csv from Kaggle.
+   Step 1.2: Review the dataset structure, source, and features (demographics, medical indicators, and target variable HeartDisease).
+   Step 1.3: Understand the dataset's context.
+
+2. **Data Preprocessing**
+   Step 2.1: Address duplicate rows by checking for duplicated observations.
+   Step 2.2: Handle missing values, ensuring the dataset is clean and complete for analysis.
+   Step 2.3: Identify outliers using skewness and kurtosis analyses for numerical features (e.g., FastingBS, Oldpeak).
+   Step 2.4: Normalize and scale features as needed (e.g., using StandardScaler for consistent input to predictive models).
+
+3. **Exploratory Data Analysis (EDA)**
+   Step 3.1: Conduct univariate analysis:
+   - Analyze the distribution of key features like age, gender, cholesterol levels, and maximum heart rate.
+   - Identify trends, such as the prevalence of heart disease in older age groups and males.
+   Step 3.2: Perform bivariate and multivariate analyses:
+   - Analyze correlations between features (e.g., resting blood pressure, cholesterol, and heart disease risk).
+   - Create visualizations such as scatter plots, box plots, and correlation heatmaps.
+   Step 3.3: Conduct statistical tests, such as chi-square, to validate relationships between categorical features and heart disease.
+
+4. **Feature Engineering**
+   Step 4.1: Create new features or refine existing ones, such as grouping ages into categories or combining multiple risk indicators.
+   Step 4.2: Reduce dimensionality using PCA to highlight significant patterns and simplify data for predictive modeling.
+
+5. **Predictive Modeling**
+   Step 5.1: Split data into training and testing sets using train_test_split.
+   Step 5.2: Develop predictive models using algorithms such as:
+   - Logistic Regression
+   - Decision Trees
+   - Random Forest
+   - XGBoost
+   Step 5.3: Evaluate model performance with metrics including:
+   - Accuracy, precision, recall, and F1-score.
+   - AUC-ROC curves to assess the trade-off between sensitivity and specificity.
+
+6. **Data Visualization and Insights**
+   Step 6.1: Create visualizations to address business requirements:
+   - Age distribution, gender distribution, and chest pain type bar charts.
+   - Scatter plots for resting blood pressure and regression lines for trends.
+   - PCA cluster plots and confusion matrices for model evaluation.
+   Step 6.2: Develop an interactive Power BI dashboard to consolidate findings and allow stakeholders to explore insights.
+
+7. **Reporting and Presentation**
+   Step 7.1: Summarize the analysis, key findings, and predictive model performance in a final report.
+   Step 7.2: Provide actionable recommendations to healthcare stakeholders, such as focusing interventions on high-risk groups (older males with high cholesterol or blood pressure).
+
+8. **Ethical Considerations**
+   Step 8.1: Ensure no personal identifiable information is included, maintaining patient anonymity.
+   Step 8.2: Address potential biases due to the dataset's imbalance (79% male patients) and document mitigation strategies (e.g., chi-square test validation).
+
+This project plan ensured that the analysis was systematic, transparent, and aligned with the project's objectives of identifying risk factors, supporting predictive models, and providing meaningful visualizations for healthcare interventions.
 
 ## The rationale to map the business requirements to the Data Visualisations
-* List your business requirements and a rationale to map them to the Data Visualisations
 
-## Analysis techniques used
-* List the data analysis methods used and explain limitations or alternative approaches.
-* How did you structure the data analysis techniques. Justify your response.
-* Did the data limit you, and did you use an alternative approach to meet these challenges?
-* How did you use generative AI tools to help with ideation, design thinking and code optimisation?
+1. Identifying key risk factors for Heart Failure by understanding demographic and clinical factors that contribute to heart failure
+ 
+ Visualizations Used: Bar charts, pie charts, scatter plots, and box plots to explore demographic and clinical features in relation to heart failure.
 
-## Ethical considerations
-* Were there any data privacy, bias or fairness issues with the data?
-* How did you overcome any legal or societal issues?
+  Key Findings from Visualizations:
+
+ - The age distribution plot shows that the majority of patients fall between 40 and 70 years old, with a peak around 60 years, indicating heart failure is more prevalent in older age groups.
+
+ - The gender distribution chart reveals a higher prevalence of heart disease in males than females, aligning with existing medical research.
+
+ - The chest pain type bar chart indicates that asymptomatic chest pain ('ASY') is the most common type among patients with heart disease, emphasizing the importance of regular check-ups for asymptomatic individuals.
+
+ - The scatter plot for resting blood pressure shows a positive correlation with age, stressing the need for blood pressure management, particularly for older adults.
+
+ - The box plot for cholesterol levels highlights wide variability, with some patients having extremely high cholesterol, emphasizing the importance of monitoring cholesterol.
+
+
+2. Develop and support predictive modeling to build machine learning models to predict the likelihood of heart failure and assess their performance
+ 
+ Visualizations Used: Line plots to illustrate trends like maximum heart rate changes and scatter plots with regression lines to identify other notable relationships (e.g., maximum heart rate versus heart disease occurrence).
+ 
+  Key Findings from Visualizations:
+
+ - The PCA cluster plot highlights distinct patterns between patients with and without heart disease, providing insights into separable groups that can enhance predictive modeling.
+
+ - Visualizations Used: PCA cluster plots to visualize data separation, ROC curves to evaluate model performance, and confusion matrices to visualize classification accuracy and misclassification rates.
+
+3. Gain Deeper Insights Through Data Exploration to Explore trends and patterns to provide actionable insights for stakeholders.
+
+  Key Findings from Visualizations:
+
+ The maximum heart rate line plot shows that patients with heart disease tend to have lower maximum heart rates, suggesting reduced exercise capacity as a potential indicator of heart disease.
+
+
+## Analysis techniques used & key findings
+  1. Conducted a Exploratory data analysis (EDA) to gain an initial understanding of the dataset such as basic by checking general information regarding the data such as column names, datatypes of columns, number of entries and the memory space used, duplicate or missing values. Followed by skewness and kurtosis analyses for numerical features to find outliers: 
+  
+  - Most features were close to normal distribution but FastingBS and Oldpeak werre right-skewed, suggesting outliers
+  - RestingBP was slightly peaked, meaning some extreme values exist
+  - HeartDisease has a very flat distribution, indicating balanced cases    
+  - The outlier were all replaced with medians except for FastingBS & HeartDisease columns as they were binary and would become distorted if changed
+
+ 2. Then conducted Univariate Analysis for Categorical Features, finding that:
+
+- Males have a higher prevalence of heart disease
+- ASY (Asymptomatic) chest pain type is a strong indicator of heart disease
+- ST-T wave abnormality in ECG is associated with heart disease
+- Exercise-induced angina is a significant risk factor (85.2% with heart disease)
+
+ 3. Followed by a Chi-Square Test to check for data bias, finding that:
+
+- Males **(79%)** dominate the dataset, while females make up only **21%**
+- Heart disease is more prevalent in **males (63.2%)** compared to **females (25.9%)**
+- Females are more likely to be free from heart disease **(74.1%)** than males **(36.8%)**
+- The largest age group is **50-59 years (40.7%)**, followed by **60-69 years (24.2%)** and **40-49 years (22.9%)**
+- Very few individuals are under 30 years (0.4%) or over 70 years (3.3%)- Heart disease risk increases with age, especially for men
+- Women are at lower risk overall but see an increase in their 60s
+- Sex, ChestPainType,RestingECG and HeartDisease have statistical significance to 'Heart Disease' 
+- The association between gender, age, and heart disease is highly significant (not due to random chance)
+
+4. Then conducted a Correlation Matrix, which showed that:
+
+- A higher Oldpeak value has strong positive correlation and is strongly associated with a higher likelihood of heart disease
+- Higher fasting blood sugar levels are moderately associated with heart disease
+- Higher resting blood pressure shows a moderate positive correlation with heart disease
+- Higher maximum heart rate achieved during exercise is strongly associated with a lower likelihood of heart disease
+- Age shows a weak positive correlation with heart disease
+- Cholesterol levels show a weak positive correlation with heart disease
 
 ## Dashboard Design
+
+![Full Dashboard Design](https://github.com/Iqra-qbl/Heart-Failure-Risk-Analysis/blob/main/Outputs/Visuals/Dashboard%20Design.png)
+
 * There is only one interactive dashboard page in PowerBI. 
 * It has a large red and blue heart image to represent what the main topic of the dashboard is which is heart failure analysis. 
 * To prove the age and gender as predictors hypothesis, created demographic bar charts to compare risk score for different age groups and genders. 
 * Created a pie chart to highlight the number of patients at risk and what their respective risk level was based on high, medium, normal and low risk category.
 * Created multiple option selection options for Risk level and Chest Pain Type to get relevant figures and analysis.
+
+![Dashboard top](https://github.com/Iqra-qbl/Heart-Failure-Risk-Analysis/blob/main/Outputs/Visuals/Dashboard%20Design%20Screenshot.png)
+
 * Created a place card for average cholestrol and mutliple line charts and bar charts to compare distribution of values in other main medical indators in dataset.
 * Created line chart to showcase average maximum heart rate and forecast
 * Added decomposition tree to analyse Average Risk score and drilling down into the key drivers behind the metric, such as understanding factors contributing to heart failure risk predictions using features such as gender, age groups, heart disease, chest pain type, resting ECG, resting blood pressure, mamixmum heart rate and st slope values.
 
-![Full Dashboard Design](https://github.com/Iqra-qbl/Heart-Failure-Risk-Analysis/blob/main/Outputs/Visuals/Dashboard%20Design.png)
+![Dashboard middle](https://github.com/Iqra-qbl/Heart-Failure-Risk-Analysis/blob/main/Outputs/Visuals/Dashboard%20Design%20Screenshot2.png)
 
 * Wanted to create scatter plots like the pair plots in data visualisation section but couldn't compute how to recreate them in an interway way in PowerBi dashboard and had to troubleshoot and justify whether they were important to be included just to create graph diversity.
 
@@ -73,7 +210,6 @@ Created a blue and red palette that conveys the medical them, kept the graphs cl
 * There are no unfixed bugs.
 
 * Did you recognise gaps in your knowledge, and how did you address them?
-
 Yes, I would take a break, research and then troubleshoot with Copilot and ChatGPT AI about what I exactly wanted the code to do and produce and would try different commands to get the exact code and outlook I wanted. 
 
 * If applicable, include evidence of feedback received (from peers or instructors) and how it improved your approach or understanding.
@@ -102,18 +238,16 @@ I would like to explore Streamlit and Heroku a bit more in the future to create 
 
 ## Credits 
 
-* Kaggle Dataset: https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction
+* fedesoriano. (September 2021). Heart Failure Prediction Dataset. Retrieved [Date Retrieved] from https://www.kaggle.com/fedesoriano/heart-failure-prediction.
 * Inspired by https://www.kaggle.com/code/tanmay111999/heart-failure-prediction-cv-score-90-5-models/notebook
 
 ### Content & Media
 
--  Most of the code was developed with the assistance of Copilot and ChatGPT AIs
-
+- Most of the code, ideation, design thinking and code optimisation was developed with the assistance of Copilot and ChatGPT AIs
 - The Code Institute logo is from (https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 - The heart image was generate by using Copilot
 - The dashboard wireframe was made in Balsamic Wireframes app
 - Rest of the diagrams are exported from the project's Data Visualisations jupyter notebook
 
-
 ## Acknowledgements
-* Thanks to Vasi and Niel and my incredibly talented peers in my cohort for providing support through this project.
+* Thanks to Vasi and Niel and my incredibly talented peers in my cohort for providing motivation throughout this project.
